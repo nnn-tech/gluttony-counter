@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>リーガルモス｜大食いカウンター</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/style.css" type="text/css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/destyle.css@1.0.15/destyle.css"/>
+  </head>
+
+  <body>
+
+    <header class="header_menu">
+
+      <div class="nav">
+        <input id="drawer_input" class="drawer_hidden" type="checkbox">
+        <label for="drawer_input" class="drawer_open">
+          <span></span>
+          <div class="drawer_message">他の虫</div>
+        </label>
+
+        <nav class="nav_content">
+          <ul class="nav_list">
+            <li class="nav_item"><a href="legal_mos.html">リーガルモス</a></li>
+            <li class="nav_item"><a href="heracules_sun.html">ヘラクレスサン</a></li>
+            <li class="nav_item"><a href="yonaguni_sun.html">ヨナグニサン</a></li>
+          </ul>
+        </nav>
+      </div>
+
+      <div class="header_menu_logo">
+        <span class="left_mos_icon">🐛</span> リーガルモス 🐛
+      </div>
+
+    </header>
+    
+    <main class="main_content">
+
+      <div class="status_result_ui">
+        <h2 class="status_result_ui_tittle ui_name_tittle">現在のステータス</h2>
+        <div class="status_result_ui_list">
+          <div class="status_result_ui_term">体力</div>
+          <div class="status_result_ui_number" id="hitPoint">1400</div>
+        </div>
+        <div class="status_result_ui_list">
+          <div class="status_result_ui_term">攻撃</div>
+          <div class="status_result_ui_number" id="attackPoint">1100</div>
+        </div>
+      </div>
+
+      <div class="counter_ui">
+        <h3 class="counter_ui_tittle ui_name_tittle">攻撃回数</h3>
+        <div class="counter_ui_frame attack_counter">
+          <button class="counter_ui_frame_button left" onclick="attackCount(-300, -1)">－</button>
+          <div class="counter_ui_frame_result_number" id="AttackCounterResult">0</div>
+          <button class="counter_ui_frame_button right" onclick="attackCount(300, 1)">＋</button>
+        </div>
+      </div>
+ 
+      <div class="counter_ui">
+        <h3 class="counter_ui_tittle ui_name_tittle">胡坐鍋装備数</h3>
+        <div class="counter_ui_frame hitpoint_counter">
+          <button class="counter_ui_frame_button left" onclick="hotPotCount(-400, -1)">－</button>
+          <div class="counter_ui_frame_result_number" id="hotPotCounterResult">0</div>
+          <button class="counter_ui_frame_button right" onclick="hotPotCount(400, 1)">＋</button>
+        </div>
+      </div>
+      
+    </main>
+    
+  </body>
+
+<script src="assets/js/script.js"></script>
+
+</html>

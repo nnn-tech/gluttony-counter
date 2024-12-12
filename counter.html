@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>カウンターアニメーション</title>
+    <style>
+        .counter {
+            font-size: 3rem;
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+
+  <div class="container">
+    <p id="count" data-from="0" data-to="30">0</p>
+    <button id="button">Start!</button>
+  </div>
+
+  <script>
+    
+    // アニメーションの時間設定
+    const DURATION = 360
+
+    // カウンターとボタンのHTMLを取得
+    const el = {
+      count: document.getElementById('count'),
+      button: document.getElementById('button')
+    }
+
+    // ボタンがクリックされた時
+    el.button.addEventListener('click', e => {
+
+      // カスタムデータを取得して10進数で数値に変換
+      const from = parseInt(el.count.dataset.from)
+      const to = parseInt(el.count.dataset.to)
+
+      // 現時刻をスタート時間として代入
+      const startTime = Date.now()
+
+      // 1970 年 1 月 1 日 0 時 0 分 0 秒 から現在までの経過時間をミリ秒単位で返す
+      const timer = setInterval(() => {
+
+        // 経過した時間を取得
+        const elapsedTime = Date.now() - startTime
+
+        // アニメーション時間の内、どのぐらいの時間が経過しているのか取得
+        const progress = elapsedTime / DURATION
+        
+        // 進捗１００％になっているかチェック
+        if (progress < 1) {
+
+          // 数字をグーンをあげていく処理
+          el.count.textContent = Math.floor(from + progress * (to - from))
+
+        } else {
+
+          // 数値を目的値に変更
+          el.count.textContent = to
+
+          // 処理を終了
+          clearInterval(timer)
+        }
+        // 16ミリ秒ごとに処理を繰り返す
+
+      }, 16)
+      
+    })
+
+  </script>
+</body>
+</html>
